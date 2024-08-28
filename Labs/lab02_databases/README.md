@@ -11,28 +11,30 @@ This tutorial provides an introduction to key chemical databases, including ChEM
 
 ## Lecture Structure
 
-### 1. Working with ChEMBL
+### 1. ChEMBL
 
 - **Introduction**: Overview of ChEMBL and its significance in drug discovery.
 - **Retrieving Molecules**: How to retrieve molecular data using the ChEMBL API.
 - **Exploring Data**: Basic methods for exploring and understanding ChEMBL data.
 
-### 2. Working with PubChem
+### 2. PubChem
 
 - **Introduction**: Overview of PubChem and its role in cheminformatics.
 - **Data Access**: Techniques for accessing PubChem data via the `PubChemPy` library.
 - **Exploring Data**: Methods for exploring and retrieving PubChem data, including structure searching.
 
-### 3. Working with PDB
+### 3. PDB
 
 - **Introduction**: Understanding the importance of PDB in structural biology.
 - **Data Retrieval**: Accessing PDB data using `Biopython`.
 - **Exploring Structures**: Methods for exploring PDB structures in Python using `nglview`.
 
-### Summary
-- **ChEMBL**: Learn how to retrieve and explore bioactive molecules.
-- **PubChem**: Access and explore a vast resource of chemical information.
-- **PDB**: Gain insights into 3D molecular structures and retrieve structural data.
+## Learning Outcomes
+
+By the end of this tutorial, participants will be able to:
+- Retrieve and explore data from ChEMBL, PubChem, and the Protein Data Bank (PDB) using Python.
+- Utilize Python libraries to interact with chemical and biological databases programmatically.
+- Understand how to access and manage chemical and biological data for further analysis.
 
 ## Resources
 
