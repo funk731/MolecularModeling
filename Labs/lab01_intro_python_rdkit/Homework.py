@@ -5,7 +5,9 @@
     to find the functions that you need to use. RDKit has different modules for
     different types of properties. You're free to use any of them. 
 
-    I'd suggest that you start by googling rdkit descriptors :)
+    I'd suggest that you start by googling rdkit descriptors or you can take a 
+    look at this blog :)
+    https://greglandrum.github.io/rdkit-blog/posts/2022-12-23-descriptor-tutorial.html
 '''
 
 # helper function to print the properties as a table
@@ -18,18 +20,36 @@ def print_dict_as_table(d: dict):
 
 everyones_favorite = 'CN1C=NC2=C1C(=O)N(C(=O)N2C)C'
 
+<<<<<<< HEAD
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 # TODO: Import the necessary modules from rdkit
+=======
+>>>>>>> b960b8d6fc0bd19e48a32bd09f405de5e4281bf1
 
-# TODO: Write a function that takes a SMILES string as input 
+# Import Descriptors module from rdkit
+from rdkit import Chem
+from rdkit.Chem import Descriptors
+
+# Write a function that takes a SMILES string as input 
 # and returns a dictionary of 15 different chemical/physical properties
 # of the molecule. Your function should return a dictionary with the
 # property names as keys and the property values as values. Example:
 # {'Molecular weight': 194.19, 'LogP': 0.5, ...}
 def get_my_properties(smiles: str) -> dict:
+    # TODO: convert the smiles into RDKit mol object
+    mol = ... 
+
+    # TODO: calculate 15 properties which should include QED, 
+    # maximum partial charge, TPSA, and number of H acceptors
+    # to answer the question on canvas. Here is one from me :)
     properties = {}
+<<<<<<< HEAD
     properties = Descriptors.CalcMolDescriptors(Chem.MolFromSmiles(smiles)) # Your code here
+=======
+    properties['MolWt'] = Descriptors.MolWt(mol)
+    ...
+>>>>>>> b960b8d6fc0bd19e48a32bd09f405de5e4281bf1
     return properties
 
 

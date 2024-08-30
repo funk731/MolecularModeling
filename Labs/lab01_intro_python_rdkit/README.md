@@ -13,6 +13,8 @@ This lecture provides a foundational understanding of Python programming and int
 
 ### 1.  Python
 
+#### i. Introduction to Python
+
 - **Overview**: An introduction to Python as a programming language.
 - **Basic Syntax**: Writing and running basic Python code.
 - **Variables and Data Types**: Understanding and using different data types.
@@ -20,21 +22,22 @@ This lecture provides a foundational understanding of Python programming and int
 - **Conditional Statements**: Using `if`, `elif`, and `else` statements.
 - **Loops**: Implementing `for` and `while` loops.
 - **Functions**: Creating and using functions to organize code.
+- **Lists, Tuples and Dictionaries**: Creating and manipulating lists, tuples and dictionaries
 - **String Manipulations**: Performing operations on strings, including indexing, slicing, case conversion, and more.
 
-#### i. Introduction to Pandas
+#### ii. Introduction to Pandas
 
 - **Creating DataFrames**: Introduction to Pandas DataFrame, a powerful data structure for data manipulation.
 - **Reading Data**: Loading data from CSV files.
 - **Data Manipulation**: Filtering, grouping, and summarizing data using Pandas.
 
-#### ii. Introduction to NumPy
+#### iii. Introduction to NumPy
 
 - **Creating Arrays**: Understanding NumPy arrays and their benefits over Python lists.
 - **Array Operations**: Performing arithmetic operations on arrays.
 - **Array Manipulations**: Reshaping, slicing, and indexing arrays for data analysis.
 
-#### iii. Introduction to Matplotlib
+#### iv. Introduction to Matplotlib
 
 - **Line Plot**: Creating simple line plots to visualize data trends.
 - **Bar Chart**: Using bar charts to represent categorical data.
