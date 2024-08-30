@@ -18,7 +18,8 @@ def print_dict_as_table(d: dict):
 
 everyones_favorite = 'CN1C=NC2=C1C(=O)N(C(=O)N2C)C'
 
-## Your code here
+from rdkit import Chem
+from rdkit.Chem import Descriptors
 # TODO: Import the necessary modules from rdkit
 
 # TODO: Write a function that takes a SMILES string as input 
@@ -28,7 +29,7 @@ everyones_favorite = 'CN1C=NC2=C1C(=O)N(C(=O)N2C)C'
 # {'Molecular weight': 194.19, 'LogP': 0.5, ...}
 def get_my_properties(smiles: str) -> dict:
     properties = {}
-    ... # Your code here
+    properties = Descriptors.CalcMolDescriptors(Chem.MolFromSmiles(smiles)) # Your code here
     return properties
 
 
