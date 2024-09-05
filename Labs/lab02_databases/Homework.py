@@ -47,7 +47,11 @@ print(f"Selected target ChEMBL ID is: {chembl_id}")
 # "target_chembl_id", "target_organism", "standard_units",
 # and "standard_value"
 bioactivities = activity_api.filter(
-    target_chembl_id=chembl_id, # TODO add other arguments 
+    target_chembl_id=chembl_id, 
+    # TODO fill following parameters 
+    type=...,
+    relation=...,
+    assay_type=..., 
 ).only(
     "activity_id",
     # TODO: add more information to the data
@@ -57,6 +61,6 @@ bioactivities = pd.DataFrame.from_dict(bioactivities)
 print(bioactivities.head())
 print(f"Number of activity records: {len(bioactivities)}")
 
-# Next part would be curation and preprocessing of the data
+# Next step would be curation and preprocessing of the data
 # for visualizations and analysis, but we'll come to that later
 
