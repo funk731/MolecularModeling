@@ -8,19 +8,20 @@ Notes from Authors: This tempate is inspired by Volkamerlab's [TeachOpenCADD](ht
 
 Short summary of the lecture.
 
-## Lecture Structure
+## Lab Structure
 
 ### Subtitles Here
 
 - **point 1**: explanation for point 1
 - **point 2**: explanation for point 2
 
-## Learning Outcomes 
+## Learning Outcomes
 
 By the end of this lecture, participants will:
+
 - learn a simple lecture template
 
-## References and Resources 
+## References and Resources
 
 * Papers
 * Useful Resources

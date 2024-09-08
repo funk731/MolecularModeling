@@ -2,14 +2,13 @@
 
 Author(s): Enes Kelestemur
 
-
 Notes: Generative AI tools, such as ChatGPT and Gemini, were used while creating this lecture notebook.
 
 ## Overview
 
 This tutorial provides an introduction to key chemical databases, including ChEMBL, PubChem, and the Protein Data Bank (PDB). It covers how to access, retrieve, and utilize chemical and biological data from these resources using Python. The tutorial focuses on utilizing Python libraries to interact with these databases programmatically. Chemical Data processing and curation is the topic of lab 3, so for further exploration of Chemical data, refer to lab 4.
 
-## Lecture Structure
+## Lab Structure
 
 ### 1. ChEMBL
 
@@ -32,6 +31,7 @@ This tutorial provides an introduction to key chemical databases, including ChEM
 ## Learning Outcomes
 
 By the end of this tutorial, participants will be able to:
+
 - Retrieve and explore data from ChEMBL, PubChem, and the Protein Data Bank (PDB) using Python.
 - Utilize Python libraries to interact with chemical and biological databases programmatically.
 - Understand how to access and manage chemical and biological data for further analysis.

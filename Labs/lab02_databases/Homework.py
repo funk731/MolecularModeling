@@ -48,10 +48,9 @@ print(f"Selected target ChEMBL ID is: {chembl_id}")
 # and "standard_value"
 bioactivities = activity_api.filter(
     target_chembl_id=chembl_id, 
-    # TODO fill following parameters 
-    type=...,
-    relation=...,
-    assay_type=..., 
+    type='IC50', # IC50
+    relation='=', # equal
+    assay_type='B', # binding
 ).only(
     "activity_id",
     # TODO: add more information to the data
