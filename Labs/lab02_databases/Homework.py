@@ -48,9 +48,15 @@ print(f"Selected target ChEMBL ID is: {chembl_id}")
 # and "standard_value"
 bioactivities = activity_api.filter(
     target_chembl_id=chembl_id, 
+<<<<<<< HEAD
     type = "IC50",
     relation = "=", #equal
     assay_type = "B" #binding# TODO add other arguments 
+=======
+    type='IC50', # IC50
+    relation='=', # equal
+    assay_type='B', # binding
+>>>>>>> 68931653798b39c7037d2cc2a880e4aa61cd12b6
 ).only(
     "activity_id", 
     "assay_chembl_id", 
@@ -66,6 +72,11 @@ bioactivities = activity_api.filter(
 bioactivities = pd.DataFrame.from_dict(bioactivities)
 print(bioactivities.head())
 print(f"Number of activity records: {len(bioactivities)}")
+<<<<<<< HEAD
 # Next part would be curation and preprocessing of the data
+=======
+
+# Next step would be curation and preprocessing of the data
+>>>>>>> 68931653798b39c7037d2cc2a880e4aa61cd12b6
 # for visualizations and analysis, but we'll come to that later
 

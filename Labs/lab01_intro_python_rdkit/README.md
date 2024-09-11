@@ -2,14 +2,13 @@
 
 Author(s): Enes Kelestemur
 
-
 Notes: Generative AI tools, such as ChatGPT and Gemini, were used while creating this lecture notebook.
 
 ## Overview
 
 This lecture provides a foundational understanding of Python programming and introduces the RDKit package for cheminformatics. The session covers essential Python syntax and operations, including variables, data types, conditional statements, loops, functions, and string manipulations. The lecture then transitions to RDKit, focusing on basic usage, molecule visualization, molecular descriptors, file reading and writing, and introductory data analysis using Pandas, NumPy, and Matplotlib.
 
-## Lecture Structure
+## Lab Structure
 
 ### 1.  Python
 
@@ -55,6 +54,7 @@ This lecture provides a foundational understanding of Python programming and int
 ## Learning Outcomes
 
 By the end of this lecture, participants will:
+
 - Understand the basics of Python programming, including working with variables, data types, and control structures.
 - Gain hands-on experience with RDKit for cheminformatics tasks, including molecular visualization and descriptor calculations.
 - Learn how to manipulate and analyze data using Pandas and NumPy.

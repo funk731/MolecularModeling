@@ -15,7 +15,7 @@ def print_dict_as_table(d: dict):
     print(f"{'Property'.ljust(30)}| {'Value'}")
     print('-' * 45)
     for key, value in d.items():
-        print(f'{key.ljust(30)}| {value}')
+        print(f'{key.ljust(30)}| {value:.2f}')
 
 
 everyones_favorite = 'CN1C=NC2=C1C(=O)N(C(=O)N2C)C'
@@ -40,7 +40,7 @@ def get_my_properties(smiles: str) -> dict:
     # TODO: convert the smiles into RDKit mol object
     mol = ... 
 
-    # TODO: calculate 15 properties which should include QED, 
+    # TODO: calculate 15 properties which should include MW, QED, 
     # maximum partial charge, TPSA, and number of H acceptors
     # to answer the question on canvas. Here is one from me :)
     properties = {}
