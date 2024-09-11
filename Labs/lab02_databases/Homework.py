@@ -23,7 +23,7 @@ activity_api = new_client.activity
 # you will ONLY need information on "organism", "pref_name", 
 # "target_type", and "target_chembl_id"
 targets = target_api.get(target_components__accession=uniprot_id).only(
-    "target_chembl_id", ... # TODO: add more information to include
+    "target_chembl_id", "target_type", "pref_name", "organism" # TODO: add more information to include
 )
 targets = pd.DataFrame.from_records(targets)
 print(targets)
@@ -47,16 +47,25 @@ print(f"Selected target ChEMBL ID is: {chembl_id}")
 # "target_chembl_id", "target_organism", "standard_units",
 # and "standard_value"
 bioactivities = activity_api.filter(
-    target_chembl_id=chembl_id, # TODO add other arguments 
+    target_chembl_id=chembl_id, 
+    type = "IC50",
+    relation = "=", #equal
+    assay_type = "B" #binding# TODO add other arguments 
 ).only(
-    "activity_id",
+    "activity_id", 
+    "assay_chembl_id", 
+    "assay_description",
+    "assay_type", 
+    "molecule_chembl_id", 
+    "type", "relation",
+    "target_chembl_id", 
+    "target_organism", 
+    "standard_units",
+    "standard_value")
     # TODO: add more information to the data
-    ...
-)
 bioactivities = pd.DataFrame.from_dict(bioactivities)
 print(bioactivities.head())
 print(f"Number of activity records: {len(bioactivities)}")
-
 # Next part would be curation and preprocessing of the data
 # for visualizations and analysis, but we'll come to that later
 
