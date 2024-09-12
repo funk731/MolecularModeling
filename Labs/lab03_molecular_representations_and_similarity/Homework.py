@@ -83,10 +83,10 @@ rdkit_fp = get_rdkit_fingerprints(mols)
 # Hint: Think about the type of data each representation
 # generates and how it can be compared.
 # TODO: Assign the appropriate distance metric to each
-my_mol_rep_dist = get_distance_matrix(my_mol_rep, ...)
-rdkit_desc_dist = get_distance_matrix(rdkit_desc, ...)
-morgan_fp_dist = get_distance_matrix(morgan_fp, ...)
-rdkit_fp_dist = get_distance_matrix(rdkit_fp, ...)
+my_mol_rep_dist = get_distance_matrix(my_mol_rep, "euclidean")
+rdkit_desc_dist = get_distance_matrix(rdkit_desc, "minkowski")
+morgan_fp_dist = get_distance_matrix(morgan_fp, "hamming")
+rdkit_fp_dist = get_distance_matrix(rdkit_fp, "jaccard")
 
 
 # plot and save the distance matrices
