@@ -63,7 +63,7 @@ def curate_mixture(mol, n_frags=2):
     return num_frags <= n_frags
 
 def keep_largest_fragment(mol):
-    frags = Chem.GetMolFrags(mol)
+    frags = Chem.GetMolFrags(mol, asMols=True)
     if len(frags) == 1:
         return mol
     frag_sizes = [frag.GetNumAtoms() for frag in frags]
@@ -74,7 +74,7 @@ def curate_inorganic(mol):
     valid_atoms = ["H", "C", "N", "O", "P", "S", "CL", "F", "I", "BR", "B"]
     flag_organic = True
     for atom in mol.GetAtoms():
-        if atom.GetSymbol().toUpperCase() not in valid_atoms:
+        if atom.GetSymbol().upper() not in valid_atoms:
             flag_organic = False
             break
 
@@ -83,7 +83,7 @@ def curate_inorganic(mol):
 def curate_boron(mol):
     flag_boron = False
     for atom in mol.GetAtoms():
-        if atom.GetSymbol().toUpperCase() == "B":
+        if atom.GetSymbol().upper() == "B":
             flag_boron = True
             break
 
@@ -92,12 +92,31 @@ def curate_boron(mol):
 
 # TODO: load your dataset, pick only one
 # Hint: you can copy paste from the notebook
-
+sol_data = pd.read_csv('data/solubility_data1.csv', usecols=['SMILES', 'LOG SOLUBILITY PH 6.8 (ug/mL)'])
+sol_data = sol_data.rename(columns={'LOG SOLUBILITY PH 6.8 (ug/mL)': 'LogS'}) # we need to convert to LogS
+sol_data = sol_data.dropna()
+sol_data['SMILES'] = sol_data['SMILES'].apply(Chem.CanonSmiles)
+sol_data['Mol'] = sol_data['SMILES'].apply(Chem.MolFromSmiles)
+sol_data['MW'] = sol_data['Mol'].apply(Descriptors.MolWt)
+sol_data['LogS'] = sol_data.apply(lambda x: convert_to_logS(x['LogS'], x['MW']), axis=1)
 
 # TODO: curation steps
 # Hint: you can do the same as in the notebook
+sol_data = sol_data[sol_data['Mol'].apply(sanitize)]
 
+# neutralize molecules
+sol_data['Mol'] = sol_data['Mol'].apply(neutralize_mol)
+
+#remove mixtures
+sol_data = sol_data[sol_data['Mol'].apply(curate_mixture)]
+sol_data['Mol'] = sol_data['Mol'].apply(keep_largest_fragment)
+
+# remove inorganic compounds
+sol_data = sol_data[sol_data['Mol'].apply(curate_inorganic)]
+
+# remove molecules containing Boron
+sol_data = sol_data[sol_data['Mol'].apply(curate_boron)]
 
 # save the curated dataset
-# df.to_csv("data/curated_dataset.csv", index=False)
+sol_data.to_csv("data/curated_dataset.csv", index=False)
 
