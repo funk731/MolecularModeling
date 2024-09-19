@@ -78,7 +78,7 @@ rdkit_desc = get_rdkit_descriptors(mols)
 morgan_fp = get_morgan_fingerprints(mols)
 rdkit_fp = get_rdkit_fingerprints(mols)
 
-# Question: What distance metric (e.g., euclidean, jacard, etc.) 
+# Question: What distance metric (e.g., euclidean, jaccard, etc.) 
 # should we use for each molecular representation? Why?
 # Hint: Think about the type of data each representation
 # generates and how it can be compared.
