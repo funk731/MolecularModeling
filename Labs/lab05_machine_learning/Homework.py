@@ -19,6 +19,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from rdkit import Chem
 from rdkit.Chem import rdFingerprintGenerator
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import matplotlib.pyplot as plt
 
 # Load dataset
 df = pd.read_csv('data/curated_solubility_dataset.csv')
@@ -48,8 +50,19 @@ X_test_scaled = scaler.transform(X_test)
 
 
 # TODO: Choose a model from sklearn and build a QSAR model for regression
-
+from sklearn.ensemble import GradientBoostingRegressor
+gbr = GradientBoostingRegressor(random_state=3)
+gbr.fit(X_train_scaled, y_train_reg)
+y_pred_gbr = gbr.predict(X_test_scaled)
 
 # TODO: Evaluate the model using R^2, MSE, and MAE metrics 
 #      and plot the predicted vs true values
+print("GBR R²:", r2_score(y_test_reg, y_pred_gbr))
+print("GBR MSE:", mean_squared_error(y_test_reg, y_pred_gbr))
+print("GBR MAE:", mean_absolute_error(y_test_reg, y_pred_gbr))
 
+plt.scatter(y_test_reg, y_pred_gbr, color='blue', alpha=0.5)
+plt.xlabel('True LogS')
+plt.ylabel('Predicted LogS')
+plt.title('Gradient Boosted Regression: Predicted vs True LogS')
+plt.show()
