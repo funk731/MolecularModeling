@@ -15,6 +15,7 @@
 # Import necessary libraries
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from rdkit import Chem
 from rdkit.Chem import rdFingerprintGenerator
@@ -51,10 +52,35 @@ X_train_smiles, X_test_smiles, y_train_smiles, y_test_smiles = train_test_split(
 
 import keras
 from keras import layers
+from sklearn.metrics import r2_score
+from sklearn import metrics
 
 # TODO: Build your neural network model for regression
+reg_model = keras.Sequential([
+    layers.Dense(256, activation='relu', input_shape=(X_train_reg.shape[1],)),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(8, activation='relu'),
+    layers.Dense(1)  # Regression output
+])
 
+# Compiling the regression model
+reg_model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_absolute_error'])
+
+# Training the regression model
+history_reg = reg_model.fit(X_train_reg, y_train_reg, epochs=10, validation_split=0.2)
 
 # TODO: Evaluate the model using R^2, MSE, and MAE metrics 
 #      and plot the predicted vs true values
 
+y_pred_reg = reg_model.predict(X_test_reg).flatten()
+
+r2 = metrics.r2_score(y_test_reg, y_pred_reg)
+mae = metrics.mean_absolute_error(y_test_reg, y_pred_reg)
+mse = metrics.mean_squared_error(y_test_reg, y_pred_reg)
+plt.figure(figsize=(6, 6))
+plt.scatter(y_test_reg, y_pred_reg, alpha=0.5)
+plt.annotate(f'R2 Score: {r2:.2f}\nMAE: {mae:.2f}\nMSE: {mse:.2f}' , xy=(0.05, 0.9), xycoords='axes fraction')
+plt.xlabel('True LogS')
+plt.ylabel('Predicted LogS')
+plt.title('Regression Model: True vs. Predicted LogS')
+plt.show()
